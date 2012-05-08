@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Penguin::VERSION::STRING
 
   gem.add_runtime_dependency("thor", ">= 0.15.0")
+  gem.add_runtime_dependency("sprockets", ">= 2.4.0")
 
   gem.add_development_dependency("rspec", ">= 2.10.0")
 end
