@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "penguin"
   gem.require_paths = ["lib"]
   gem.version       = Penguin::VERSION::STRING
+
+  gem.add_development_dependency("rspec", ">= 2.10.0")
 end
