@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "penguin/cli"
+require "penguin"
 
 Penguin::CLI.start
