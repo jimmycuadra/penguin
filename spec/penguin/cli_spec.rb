@@ -34,7 +34,7 @@ describe Penguin::CLI do
 
     it "copies the presentation templates into the new directory" do
       described_class.start(["new", "foo"])
-      ["haml", "sass", "coffee"].each do |ext|
+      ["rb", "haml", "sass", "coffee"].each do |ext|
         Pathname.new("foo/deck.#{ext}").should be_a_file
       end
     end
