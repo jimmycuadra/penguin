@@ -20,4 +20,6 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency("thor", ">= 0.15.0")
 
   gem.add_development_dependency("rspec", ">= 2.10.0")
+  gem.add_development_dependency("pry", ">= 0.9.9")
+  gem.add_development_dependency("pry-nav", ">= 0.2.0")
 end

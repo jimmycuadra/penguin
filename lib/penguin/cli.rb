@@ -12,7 +12,11 @@ module Penguin
 
     desc "new NAME", "create a new Penguin project called NAME"
     def new(name)
-      Pathname.new(name).mkpath
+      dir = Pathname.new(name)
+      dir.mkpath
+
+      templates = Pathname.new(File.expand_path("../../../assets/templates", __FILE__)).children
+      FileUtils.cp_r(templates, dir)
     end
   end
 end

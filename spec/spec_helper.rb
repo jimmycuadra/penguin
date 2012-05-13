@@ -1,4 +1,5 @@
 require "penguin"
+require "pry"
 require "pathname"
 
 RSpec.configure do |config|
