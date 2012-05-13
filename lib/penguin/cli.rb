@@ -12,7 +12,7 @@ module Penguin
 
     desc "new NAME", "create a new Penguin project called NAME"
     def new(name)
-      (Pathname.new(".") + name).mkpath
+      Pathname.new(name).mkpath
     end
   end
 end
