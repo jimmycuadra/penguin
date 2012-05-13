@@ -25,4 +25,6 @@ RSpec.configure do |config|
 
     result
   end
+
+  alias :silence :capture
 end

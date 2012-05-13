@@ -4,7 +4,7 @@ describe Penguin::CLI do
   describe "#start" do
     context "inside a project" do
       before do
-        described_class.start(["new", "foo"])
+        silence(:stdout) { described_class.start(["new", "foo"]) }
         Dir.chdir("foo")
       end
 
@@ -28,12 +28,12 @@ describe Penguin::CLI do
 
   describe "#new" do
     it "creates a new directory with the given name" do
-      described_class.start(["new", "foo"])
+      silence(:stdout) { described_class.start(["new", "foo"]) }
       Pathname.new("foo").should be_a_directory
     end
 
     it "copies the presentation templates into the new directory" do
-      described_class.start(["new", "foo"])
+      silence(:stdout) { described_class.start(["new", "foo"]) }
       ["rb", "haml", "sass", "coffee"].each do |ext|
         Pathname.new("foo/deck.#{ext}").should be_a_file
       end
