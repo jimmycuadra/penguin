@@ -3,14 +3,20 @@ require "pathname"
 
 module Penguin
   class CLI < Thor
+    include Thor::Actions
+
     default_task :start
 
-    desc "start", "starts your presentation"
+    desc "start", "Start your presentation"
     def start
-      Server.run!
+      if Pathname.new("deck.haml").exist?
+        Server.run!
+      else
+        say "You must be inside a project. Run `penguin new NAME` to create one.", :red
+      end
     end
 
-    desc "new NAME", "create a new Penguin project called NAME"
+    desc "new NAME", "Create a new Penguin project called NAME"
     def new(name)
       template = Pathname.new(File.expand_path("../../../assets/template", __FILE__))
 
