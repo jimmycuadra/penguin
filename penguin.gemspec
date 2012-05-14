@@ -15,11 +15,15 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Penguin::VERSION::STRING
 
-  gem.add_runtime_dependency("sinatra", ">= 1.3.0")
-  gem.add_runtime_dependency("sprockets", ">= 2.4.0")
-  gem.add_runtime_dependency("thor", ">= 0.15.0")
+  gem.add_runtime_dependency("sinatra", ">= 1.3")
+  gem.add_runtime_dependency("sprockets", ">= 2.4")
+  gem.add_runtime_dependency("thor", ">= 0.15")
 
-  gem.add_development_dependency("rspec", ">= 2.10.0")
-  gem.add_development_dependency("pry", ">= 0.9.9")
-  gem.add_development_dependency("pry-nav", ">= 0.2.0")
+  gem.add_development_dependency("rspec", ">= 2.10")
+  gem.add_development_dependency("capybara", ">= 1.1")
+  gem.add_development_dependency("pry", ">= 0.9")
+  gem.add_development_dependency("pry-nav", ">= 0.2")
+  gem.add_development_dependency("haml", ">= 3.1")
+  gem.add_development_dependency("sass", ">= 3.1")
+  gem.add_development_dependency("coffee-script", ">= 2.2")
 end
