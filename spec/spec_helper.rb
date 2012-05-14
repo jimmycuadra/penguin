@@ -6,7 +6,7 @@ require "capybara/rspec"
 module Penguin
   class Server
     environment = :test
-    settings.sprockets.append_path("spec/dummy")
+    settings.sprockets.prepend_path("spec/dummy")
   end
 end
 
