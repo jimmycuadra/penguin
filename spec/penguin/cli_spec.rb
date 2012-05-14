@@ -13,13 +13,14 @@ describe Penguin::CLI do
       end
 
       it "starts up the server" do
-        Penguin::Server.should_receive(:run!)
+        Rack::Server.should_receive(:start)
         silence(:stdout) { described_class.start(["start"]) }
       end
     end
 
     context "outside a project" do
       it "outputs a message telling the user to create a project first" do
+        Rack::Server.stub(:start)
         output = capture(:stdout) { described_class.start(["start"]) }
         output.should include("must be inside a project")
       end

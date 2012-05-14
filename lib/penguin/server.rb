@@ -1,30 +1,20 @@
-require "sinatra/base"
-require "haml"
-require "sass"
-require "coffee-script"
+require "rack"
 require "sprockets"
 
 module Penguin
-  class Server < Sinatra::Base
-    sprockets = Sprockets::Environment.new
-    sprockets.append_path(File.expand_path("../../../assets/css", __FILE__))
-    sprockets.append_path(File.expand_path("../../../assets/js", __FILE__))
-    sprockets.append_path(File.expand_path(Dir.pwd))
+  Server = Rack::URLMap.new({
+    "/assets" => Sprockets::Environment.new { |env|
 
-    set :root, Dir.pwd
-    set :public_folder, settings.root
-    set :views, settings.root
-    set :static, true
-    set :sprockets, sprockets
+      # TODO: Provide access to the Sprockets instance so spec_helper can do this.
+      if ENV["RACK_ENV"] == "test"
+        env.append_path(File.expand_path("../../../spec/dummy", __FILE__))
+      else
+        env.append_path(File.expand_path(Dir.pwd))
+      end
 
-    get "/assets*?" do
-      request.env["PATH_INFO"].sub!(%r{^/assets/?}, "")
-      settings.sprockets.call(request.env)
-    end
-
-    get "/" do
-      haml :deck, layout: true
-    end
-
-  end
+      env.append_path(File.expand_path("../../../assets/css", __FILE__))
+      env.append_path(File.expand_path("../../../assets/js", __FILE__))
+    },
+    "/" => Application
+  })
 end

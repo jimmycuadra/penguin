@@ -1,5 +1,6 @@
 require "thor"
 require "pathname"
+require "rack"
 
 module Penguin
   class CLI < Thor
@@ -15,7 +16,14 @@ module Penguin
     def start
       if Pathname.new("deck.rb").exist?
         say "Starting Penguin... Press control-C to stop.", :green
-        Server.run!
+
+        Rack::Server.start({
+          app: Server,
+          environment: ENV['RACK_ENV'] || "development",
+          pid: nil,
+          Port: 4567,
+          Host: "0.0.0.0"
+        })
       else
         say "You must be inside a project. Run `penguin new NAME` to create one.", :red
       end

@@ -1,12 +1,12 @@
+ENV["RACK_ENV"] = "test"
+
 require "penguin"
-require "pry"
 require "pathname"
+
+require "pry"
 require "capybara/rspec"
 
 RSpec.configure do |config|
-  Penguin::Server.environment = :test
-  Penguin::Server.sprockets.prepend_path(File.expand_path("../dummy", __FILE__))
-
   Capybara.app = Penguin::Server
 
   config.before do
