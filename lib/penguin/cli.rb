@@ -14,6 +14,7 @@ module Penguin
     desc "start", "Start your presentation"
     def start
       if Pathname.new("deck.rb").exist?
+        say "Starting Penguin... Press control-C to stop.", :green
         Server.run!
       else
         say "You must be inside a project. Run `penguin new NAME` to create one.", :red
