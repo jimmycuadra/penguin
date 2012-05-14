@@ -9,6 +9,7 @@ module Penguin
     sprockets = Sprockets::Environment.new
     sprockets.append_path(File.expand_path("../../../assets/css", __FILE__))
     sprockets.append_path(File.expand_path("../../../assets/js", __FILE__))
+    sprockets.append_path(File.expand_path(Dir.pwd))
 
     set :root, Dir.pwd
     set :public_folder, settings.root
@@ -17,8 +18,7 @@ module Penguin
     set :sprockets, sprockets
 
     get "/assets*?" do
-      env = request.env.clone
-      env["PATH_INFO"].sub!(%r{^/assets/?}, "")
+      request.env["PATH_INFO"].sub!(%r{^/assets/?}, "")
       settings.sprockets.call(request.env)
     end
 

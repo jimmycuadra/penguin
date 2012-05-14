@@ -3,14 +3,10 @@ require "pry"
 require "pathname"
 require "capybara/rspec"
 
-module Penguin
-  class Server
-    environment = :test
-    settings.sprockets.prepend_path("spec/dummy")
-  end
-end
-
 RSpec.configure do |config|
+  Penguin::Server.environment = :test
+  Penguin::Server.sprockets.prepend_path(File.expand_path("../dummy", __FILE__))
+
   Capybara.app = Penguin::Server
 
   config.before do
