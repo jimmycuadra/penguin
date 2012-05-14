@@ -17,7 +17,7 @@ module Penguin
     end
 
     get "/" do
-      haml :deck, layout: true
+      haml :deck
     end
   end
 end
