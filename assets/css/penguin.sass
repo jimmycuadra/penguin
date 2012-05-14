@@ -1,1 +1,42 @@
-//= require "penguin/reset"
+@import penguin/reset
+
+$lineHeight: 36px
+
+body
+  background: steelblue
+  font-family: Arial, sans-serif
+  font-size: 28px
+  line-height: $lineHeight
+
+h1, h2, h3, h4, h5, h6
+  text-align: center
+
+h1
+  font-size: 48px
+  line-height: $lineHeight * 2
+
+h2
+  font-size: 36px
+  line-height: $lineHeight * 2
+
+h3
+  font-size: 30px
+  line-height: $lineHeight * 1.5
+
+h4
+  font-size: 24px
+
+h5
+  font-size: 20px
+
+h6
+  font-size: 16px
+
+.container
+  margin: 40px auto
+  width: 960px
+
+.slide
+  display: none
+  &.current
+    display: block
