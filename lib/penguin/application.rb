@@ -10,13 +10,6 @@ module Penguin
     set :views, root
     set :static, true
 
-    # TODO: See if there's a cleaner way to do this from spec_helper.
-    configure :test do
-      set :root, File.expand_path("../../../spec/dummy", __FILE__)
-      set :public_folder, root
-      set :views, root
-    end
-
     use Sprockets do |env|
       env.append_path root
       env.append_path File.expand_path("../../../assets/css", __FILE__)

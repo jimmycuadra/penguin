@@ -1,6 +1,16 @@
 require "spec_helper"
 
 describe Penguin::CLI do
+  before do
+    Pathname.new("tmp").mkpath
+    Dir.chdir("tmp")
+  end
+
+  after do
+    Dir.chdir("..")
+    Pathname.new("tmp").rmtree
+  end
+
   describe "#start" do
     context "inside a project" do
       before do

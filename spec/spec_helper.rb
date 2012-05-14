@@ -1,23 +1,18 @@
 ENV["RACK_ENV"] = "test"
 
 require "penguin"
-require "pathname"
 
+# Make the App (and Sprockets) think spec/dummy is the root
+Dir.chdir("spec/dummy")
+require "penguin/application"
+Dir.chdir("../..")
+
+require "pathname"
 require "pry"
 require "capybara/rspec"
 
 RSpec.configure do |config|
   Capybara.app = Penguin::Application
-
-  config.before do
-    Pathname.new("tmp").mkpath
-    Dir.chdir("tmp")
-  end
-
-  config.after do
-    Dir.chdir("..")
-    Pathname.new("tmp").rmtree
-  end
 
   def capture(stream)
     begin
