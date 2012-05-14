@@ -7,7 +7,7 @@ require "pry"
 require "capybara/rspec"
 
 RSpec.configure do |config|
-  Capybara.app = Penguin::Server
+  Capybara.app = Penguin::Application
 
   config.before do
     Pathname.new("tmp").mkpath

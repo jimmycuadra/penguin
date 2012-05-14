@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe Penguin::Server, type: :request do
-  it "makes Application available at the root path" do
+describe Penguin::Application, type: :request do
+  it "makes slides available at the root path" do
     visit "/"
     page.should have_content("Penguin")
   end

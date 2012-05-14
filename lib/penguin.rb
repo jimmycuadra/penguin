@@ -1,6 +1,6 @@
 module Penguin
   autoload :Application, "penguin/application"
   autoload :CLI, "penguin/cli"
-  autoload :Server, "penguin/server"
+  autoload :Sprockets, "penguin/sprockets"
   autoload :VERSION, "penguin/version"
 end

@@ -17,6 +17,12 @@ module Penguin
       set :views, root
     end
 
+    use Sprockets do |env|
+      env.append_path root
+      env.append_path File.expand_path("../../../assets/css", __FILE__)
+      env.append_path File.expand_path("../../../assets/js", __FILE__)
+    end
+
     get "/" do
       haml :deck, layout: true
     end
