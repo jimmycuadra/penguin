@@ -4,10 +4,6 @@ require "pathname"
 require "capybara/rspec"
 
 module Penguin
-  def self.user_config_file
-    File.expand_path("../dummy/deck.rb", __FILE__)
-  end
-
   class Server
     environment = :test
     settings.sprockets.append_path("spec/dummy")

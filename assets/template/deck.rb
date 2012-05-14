@@ -1,3 +1,1 @@
-require "haml"
-require "sass"
-require "coffee-script"
+# Config file will go here eventually
