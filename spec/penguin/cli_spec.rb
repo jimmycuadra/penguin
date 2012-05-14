@@ -14,7 +14,7 @@ describe Penguin::CLI do
 
       it "starts up the server" do
         Penguin::Server.should_receive(:run!)
-        described_class.start(["start"])
+        silence(:stdout) { described_class.start(["start"]) }
       end
     end
 
