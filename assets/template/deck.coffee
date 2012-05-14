@@ -1,4 +1,3 @@
 #= require penguin
 
-$ ->
-  console.log("Now you're sliding with Penguin.")
+# --- Your custom code goes below this point ---
