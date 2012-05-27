@@ -1,7 +1,5 @@
 require "sinatra/base"
-require "haml"
-require "sass"
-require "coffee-script"
+require File.expand_path("deck", Dir.pwd)
 
 module Penguin
   class Application < Sinatra::Base
