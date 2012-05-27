@@ -1,5 +1,4 @@
 require "sinatra/base"
-require File.expand_path("deck", Dir.pwd)
 
 module Penguin
   class Application < Sinatra::Base
@@ -8,6 +7,10 @@ module Penguin
     set :views, root
     set :static, true
 
+    configure do
+      eval File.read(File.expand_path("deck.rb", root))
+    end
+
     use Sprockets do |env|
       env.append_path root
       env.append_path File.expand_path("../../../assets/css", __FILE__)
@@ -15,7 +18,7 @@ module Penguin
     end
 
     get "/" do
-      haml :deck
+      send(settings.template_engine, :deck)
     end
   end
 end
