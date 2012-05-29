@@ -8,7 +8,13 @@ module Penguin
     set :static, true
 
     configure do
-      eval File.read(File.expand_path("deck.rb", root))
+      begin
+        eval File.read(File.expand_path("deck.rb", root))
+      rescue LoadError => e
+        gem_name = e.message.match(/\s(\S+)$/) && $1
+        CLI.new.say "A required gem was not found. Please run `gem install #{gem_name}` and try again.", :red
+        abort
+      end
     end
 
     use Sprockets do |env|
