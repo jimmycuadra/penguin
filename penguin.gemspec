@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Jimmy Cuadra"]
   gem.email         = ["jimmy@jimmycuadra.com"]
   gem.description   = %q{Penguin is a tool for creating presentations.}
-  gem.summary       = %q{Penguin is a tool for creating presentations.}
+  gem.summary       = %q{Penguin is a tool for creating web-based presentations using your preferred preprocessors.}
   gem.homepage      = "https://github.com/jimmycuadra/penguin"
 
   gem.files         = `git ls-files`.split($\)

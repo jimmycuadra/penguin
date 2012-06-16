@@ -3,7 +3,7 @@ module Penguin
     MAJOR = 0
     MINOR = 0
     PATCH = 1
-    PRE   = nil
+    PRE   = "beta1"
 
     STRING = [MAJOR, MINOR, PATCH, PRE].compact.join(".")
   end
