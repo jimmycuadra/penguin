@@ -12,7 +12,7 @@ module Penguin
         eval File.read(File.expand_path("deck.rb", root))
       rescue LoadError => e
         gem_name = e.message.match(/\s(\S+)$/) && $1
-        CLI.new.say "A required gem was not found. Please run `gem install #{gem_name}` and try again.", :red
+        Penguin.ui.say "A required gem was not found. Please run `gem install #{gem_name}` and try again.", :red
         abort
       end
     end
