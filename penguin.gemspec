@@ -21,8 +21,6 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency("rspec", ">= 2.10")
   gem.add_development_dependency("capybara", ">= 1.1")
-  gem.add_development_dependency("pry", ">= 0.9")
-  gem.add_development_dependency("pry-nav", ">= 0.2")
   gem.add_development_dependency("haml", ">= 3.1")
   gem.add_development_dependency("sass", ">= 3.1")
   gem.add_development_dependency("coffee-script", ">= 2.2")
